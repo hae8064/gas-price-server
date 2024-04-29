@@ -9,4 +9,9 @@ export class OilController {
   getAvgPrice() {
     return this.oilService.getAvgPrice();
   }
+
+  @Get('around-all')
+  getAroundAll() {
+    return this.oilService.getAroundAll();
+  }
 }
