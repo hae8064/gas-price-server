@@ -27,8 +27,10 @@ export class OilService {
   }
 
   // 반경 내 주유소
-  async getAroundAll() {
-    const url = `http://www.opinet.co.kr/api/aroundAll.do?code=${this.apiKey}&x=314681.8&y=544837&radius=5000&sort=1&prodcd=B027&out=json`;
+  async getAroundAll(x: number, y: number, radius: number, prodcd: string) {
+    // Default url
+    // const url = `http://www.opinet.co.kr/api/aroundAll.do?code=${this.apiKey}&x=314681.8&y=544837&radius=5000&sort=1&prodcd=B027&out=json`;
+    const url = `http://www.opinet.co.kr/api/aroundAll.do?code=${this.apiKey}&x=${x}&y=${y}&radius=${radius}&sort=1&prodcd=${prodcd}&out=json`;
     try {
       const res = await firstValueFrom(this.httpService.get(url));
       return res.data;
